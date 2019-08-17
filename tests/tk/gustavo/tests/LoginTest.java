@@ -6,6 +6,7 @@ import static tk.gustavo.config.Configuration.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import org.junit.runner.RunWith;
 import tk.gustavo.pages.LoginPage;
 import tk.gustavo.utils.URL;
 
@@ -42,7 +43,7 @@ public class LoginTest extends BaseTest{
     @Test
     public void tc003_loginWithInvalidFormatEmail(){
         boolean invalidFeedback = new LoginPage(driver)
-                .login("teste", getPassword())
+                .login("test", getPassword())
                 .hasInvalidFeedback();
 
         assertTrue(invalidFeedback);
