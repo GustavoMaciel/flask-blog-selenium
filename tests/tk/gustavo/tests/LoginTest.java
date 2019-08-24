@@ -6,8 +6,7 @@ import static tk.gustavo.config.Configuration.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import org.junit.runner.RunWith;
-import tk.gustavo.pages.LoginPage;
+import pages.LoginPage;
 import tk.gustavo.utils.URL;
 
 /*
@@ -87,9 +86,11 @@ public class LoginTest extends BaseTest{
     @Test
     public void tc007_logoutFromService(){
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.login(getEmail(), getPassword())
-                .logout();
-        assertFalse(loginPage.isLoggedIn());
+        assertFalse(
+                loginPage.login(getEmail(), getPassword())
+                .logout()
+                .isLoggedIn()
+                );
     }
 
 }

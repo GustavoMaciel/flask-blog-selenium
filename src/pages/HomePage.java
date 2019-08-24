@@ -1,4 +1,4 @@
-package tk.gustavo.pages;
+package pages;
 
 
 import org.openqa.selenium.WebDriver;

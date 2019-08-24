@@ -10,7 +10,8 @@ public class Configuration {
     public static String baseUrl = "http://127.0.0.1:5000/";
     public static String email = "gm.nunes92@gmail.com";
     public static String password = "1234";
-    public static String chromeDriverPath = "C:\\Users\\Gustavo Maciel\\Documents\\Diversos\\Projects\\flask-selenium-test\\driver\\chromedriver.exe";
+    public static String chromeDriverPath =
+            "C:\\Users\\Gustavo Maciel\\Documents\\Diversos\\Projects\\flask-selenium-test\\driver\\chromedriver.exe";
 
     private static WebDriver driver;
 
@@ -19,8 +20,7 @@ public class Configuration {
 
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-        driver.get(baseUrl);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         return driver;
     }
 
