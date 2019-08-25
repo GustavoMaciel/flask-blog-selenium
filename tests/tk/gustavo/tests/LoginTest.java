@@ -17,7 +17,7 @@ import tk.gustavo.utils.URL;
 public class LoginTest extends BaseTest{
 
     @Before
-    public void setUpTestSuit(){
+    public void setUp(){
         driver = getChromeInstance();
         driver.get(URL.LOGIN_URL);
     }

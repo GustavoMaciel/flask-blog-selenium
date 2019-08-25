@@ -18,7 +18,7 @@ public class RegisterTest extends BaseTest {
     private RegisterPage registerPage;
 
     @Before
-    public void setUpTestSuite(){
+    public void setUp(){
         driver = getChromeInstance();
         driver.get(URL.REGISTER_URL);
         registerPage = new RegisterPage(driver);

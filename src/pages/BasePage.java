@@ -4,18 +4,24 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class BasePage {
 
     protected WebDriver driver;
+    private boolean loggedIn;
+    @FindBy(linkText = "About")
+    protected WebElement aboutButton;
 
     public BasePage(WebDriver driver){
         this.loggedIn = false;
         this.driver = driver;
     }
 
-    protected boolean loggedIn;
 
+    public void setLoggedIn(boolean loggedIn){this.loggedIn = loggedIn;}
+
+    public boolean isLoggedIn(){return loggedIn;}
 
     public boolean hasElement(By searchParameter){
         try {
@@ -23,6 +29,14 @@ public class BasePage {
             return true;
         }catch (NoSuchElementException e){
             return false;
+        }
+    }
+
+    public WebElement getElement(By search){
+        try {
+            return driver.findElement(search);
+        }catch (NoSuchElementException e){
+            return null;
         }
     }
 
@@ -50,10 +64,5 @@ public class BasePage {
         this.setLoggedIn(false);
         return this;
     }
-
-
-    public void setLoggedIn(boolean loggedIn){this.loggedIn = loggedIn;}
-
-    public boolean isLoggedIn(){return loggedIn;}
 
 }
