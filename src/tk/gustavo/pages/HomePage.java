@@ -1,4 +1,4 @@
-package pages;
+package tk.gustavo.pages;
 
 
 import org.openqa.selenium.By;

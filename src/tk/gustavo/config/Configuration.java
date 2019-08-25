@@ -16,10 +16,10 @@ public class Configuration {
     private static WebDriver driver;
 
     public static WebDriver getChromeInstance(){
-        System.setProperty("webdriver.chrome.driver", getChromeDriverPath());
-
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
+        if(System.getProperty("webdriver.chrome.driver") == null) {
+            System.setProperty("webdriver.chrome.driver", getChromeDriverPath());
+        }
+        driver = new ChromeDriver(OptionsManager.getChromeOptions());
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         return driver;
     }

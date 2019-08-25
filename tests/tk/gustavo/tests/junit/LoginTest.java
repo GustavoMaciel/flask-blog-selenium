@@ -6,7 +6,7 @@ import static tk.gustavo.config.Configuration.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import pages.LoginPage;
+import tk.gustavo.pages.LoginPage;
 import tk.gustavo.utils.URL;
 
 /*

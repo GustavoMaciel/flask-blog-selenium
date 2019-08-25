@@ -2,7 +2,7 @@ package tk.gustavo.tests;
 
 import org.junit.Before;
 import org.junit.Test;
-import pages.RegisterPage;
+import tk.gustavo.pages.RegisterPage;
 import tk.gustavo.utils.NameGenerator;
 import tk.gustavo.utils.URL;
 

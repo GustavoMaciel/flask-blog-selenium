@@ -3,7 +3,7 @@ package tk.gustavo.tests;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebElement;
-import pages.HomePage;
+import tk.gustavo.pages.HomePage;
 import tk.gustavo.config.Configuration;
 import tk.gustavo.utils.URL;
 

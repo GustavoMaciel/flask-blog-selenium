@@ -1,10 +1,11 @@
-package pages;
+package tk.gustavo.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class BasePage {
 
@@ -16,6 +17,7 @@ public class BasePage {
     public BasePage(WebDriver driver){
         this.loggedIn = false;
         this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 
 
@@ -43,6 +45,7 @@ public class BasePage {
     /**
      * Seeks a Flash Alert from Flask in the page
      *@return true if the WebDriver is able to find an element with the informed class, which means the login has failed.
+     * @param xPath All pages can have different types of flash alerts, thus the xPath is necessary
      */
     public boolean hasFlashAlert(String xPath){
         return hasElement(By.xpath(xPath));
