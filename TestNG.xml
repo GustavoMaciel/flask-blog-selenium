@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" name="Suite" parallel="tests" >
+    <test name="tk.gustavo.tests.testng.LoginTest" parallel="methods" thread-count="4">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="tk.gustavo.tests.testng.LoginTest">
+                <methods>
+                    <include name="tc001_loginWithValidCredentials" />
+                    <include name="tc002_loginWithInvalidCredentials" />
+                    <include name="tc003_loginWithInvalidFormatEmail" />
+
+                    <include name="tc004_loginWithoutEmail" />
+                    <include name="tc005_loginWithoutPassword" />
+
+                    <include name="tc006_accessRestrictedPageWithoutBeingLoggedIn" />
+                    <include name="tc007_logoutFromService" />
+                </methods>
+            </class>
+        </classes>
+    </test> <!-- First Test -->
+</suite> <!-- Suite -->

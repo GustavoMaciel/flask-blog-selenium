@@ -4,6 +4,18 @@
 	<groupId>tk.gustavo</groupId>
 	<artifactId>flask-selenium-test</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>8</source>
+					<target>8</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 	<name>Flask Blog Selenium Testing</name>
 	<description>Project intended to test the blog created with flask by using selenium.</description>
 
@@ -21,6 +33,14 @@
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.14.3</version>
+			<scope>test</scope>
+		</dependency>
+
 
 	</dependencies>
 

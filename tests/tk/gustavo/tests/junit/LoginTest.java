@@ -1,4 +1,4 @@
-package tk.gustavo.tests;
+package tk.gustavo.tests.junit;
 
 import static org.junit.Assert.*;
 import static tk.gustavo.config.Configuration.*;
@@ -16,17 +16,20 @@ import tk.gustavo.utils.URL;
  */
 public class LoginTest extends BaseTest{
 
+    LoginPage loginPage;
+
     @Before
     public void setUp(){
         driver = getChromeInstance();
         driver.get(URL.LOGIN_URL);
+        loginPage = new LoginPage(driver);
     }
 
 
     @Test
     public void tc001_loginWithValidCredentials(){
-        boolean loggedIn = new LoginPage(driver)
-                .login(getEmail(), getPassword())
+        boolean loggedIn =
+                loginPage.login(getEmail(), getPassword())
                 .isLoggedIn();
 
         assertTrue(loggedIn);
@@ -34,15 +37,13 @@ public class LoginTest extends BaseTest{
 
     @Test
     public void tc002_loginWithInvalidCredentials(){
-        LoginPage loginPage = new LoginPage(driver);
         loginPage.login("test@test.com", "yadayada");
         assertTrue(loginPage.hasFlashAlert("//div[@class='alert alert-danger']"));
     }
 
     @Test
     public void tc003_loginWithInvalidFormatEmail(){
-        boolean invalidFeedback = new LoginPage(driver)
-                .login("test", getPassword())
+        boolean invalidFeedback = loginPage.login("test", getPassword())
                 .hasInvalidFeedback();
 
         assertTrue(invalidFeedback);
@@ -55,10 +56,10 @@ public class LoginTest extends BaseTest{
           "document.getElementsByName('email')[0].removeAttribute('required')"
         );
 
-        boolean invalidFeedback = new LoginPage(driver)
-                .fillPassword(getPassword())
-                .clickLoginButton()
-                .hasInvalidFeedback();
+        boolean invalidFeedback =
+            loginPage.fillPassword(getPassword())
+            .clickLoginButton()
+            .hasInvalidFeedback();
         assertTrue(invalidFeedback);
     }
 
@@ -68,8 +69,8 @@ public class LoginTest extends BaseTest{
                 "document.getElementsByName('password')[0].removeAttribute('required')"
         );
 
-        boolean invalidFeedback = new LoginPage(driver)
-                .fillEmail(getEmail())
+        boolean invalidFeedback =
+                loginPage.fillEmail(getEmail())
                 .clickLoginButton()
                 .hasInvalidFeedback();
         assertTrue(invalidFeedback);
@@ -78,14 +79,12 @@ public class LoginTest extends BaseTest{
     @Test
     public void tc006_accessRestrictedPageWithoutBeingLoggedIn(){
         driver.get(getBaseUrl() + "post/new");
-        LoginPage loginPage = new LoginPage(driver);
         assertTrue(loginPage.hasFlashAlert("//div[@class='alert alert-info']"));
     }
 
     // Needs improvement
     @Test
     public void tc007_logoutFromService(){
-        LoginPage loginPage = new LoginPage(driver);
         assertFalse(
                 loginPage.login(getEmail(), getPassword())
                 .logout()

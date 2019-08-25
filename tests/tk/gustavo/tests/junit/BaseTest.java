@@ -1,4 +1,4 @@
-package tk.gustavo.tests;
+package tk.gustavo.tests.junit;
 
 import org.junit.After;
 import org.junit.Before;
