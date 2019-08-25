@@ -16,7 +16,7 @@ import tk.gustavo.utils.URL;
  */
 public class LoginTest extends BaseTest{
 
-    LoginPage loginPage;
+    private LoginPage loginPage;
 
     @Before
     public void setUp(){
@@ -78,7 +78,7 @@ public class LoginTest extends BaseTest{
 
     @Test
     public void tc006_accessRestrictedPageWithoutBeingLoggedIn(){
-        driver.get(getBaseUrl() + "post/new");
+        driver.get(URL.NEW_POST_URL);
         assertTrue(loginPage.hasFlashAlert("//div[@class='alert alert-info']"));
     }
 
