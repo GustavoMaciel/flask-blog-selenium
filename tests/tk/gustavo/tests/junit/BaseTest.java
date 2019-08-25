@@ -8,7 +8,7 @@ public class BaseTest {
     protected WebDriver driver;
 
     @After
-    public void tearDownTestSuit(){
+    public void tearDownTest(){
         driver.quit();
     }
 

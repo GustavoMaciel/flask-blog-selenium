@@ -33,14 +33,14 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-    public HomePage clickLoginButton() {
+    public BasePage clickLoginButton() {
         submitButton.click();
-        HomePage homePage = new HomePage(driver);
-        homePage.setLoggedIn(true);
-        return homePage;
+        BasePage basePage = new BasePage(driver);
+        basePage.setLoggedIn(true);
+        return basePage;
     }
 
-    public HomePage login(String email, String password){
+    public BasePage login(String email, String password){
         this.setLoggedIn(true);
         return fillEmail(email).fillPassword(password).clickLoginButton();
     }
